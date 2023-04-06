@@ -29,12 +29,17 @@ const movies = [
   },
 ];
 
+const alt = function (imagePath) {
+  const splited = imagePath.split("/");
+  return splited[splited.length - 1].split(".")[0];
+};
+
 const createCard = function (movies) {
   return movies.map((movie) => {
     const html = `
         <div class="wrapper-card">
             <div class="wrapper-movie-details">
-                    <img src=${movie.image} alt="..." />
+                    <img src=${movie.image} alt="${alt(movie.image)}" />
                     <div class="wrapper-details">
                         <h4>${movie.name}</h4>
                         <div class="wrapper-favorite">
